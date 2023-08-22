@@ -27,7 +27,7 @@
     "micro-pack": "bin/micro-pack.js"
   },
   "scripts": {
-    "build": "tsup src/index.ts --dts --format cjs,esm --minify  --clean",
+    "build": "tsup src/index.ts --dts --format cjs,esm --minify --clean",
     "build:dev": "tsup src/index.ts --format cjs --clean",
     "pack:example": "pnpm build:dev && micro-pack --entry examples/src/index.js --output examples/dist",
     "preview": "pnpm pack:example && node examples/dist/index.js"
