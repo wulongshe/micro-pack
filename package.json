@@ -1,6 +1,6 @@
 {
   "name": "@shewulong/micro-pack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "license": "MIT",
   "keywords": [
@@ -8,7 +8,7 @@
     "build",
     "complier"
   ],
-  "author": "",
+  "author": "shewulong",
   "main": "dist/index.js",
   "module": "src/index.ts",
   "types": "dist/index.d.ts",
@@ -42,7 +42,7 @@
     "tsup": "^7.2.0",
     "typescript": "^5.1.6"
   },
-  "repository": "",
+  "repository": "git@github.com:wulongshe/micro-pack.git",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
