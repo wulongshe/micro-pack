@@ -10,9 +10,14 @@
   ],
   "author": "shewulong",
   "main": "dist/index.js",
-  "module": "src/index.ts",
-  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
   "type": "commonjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
   "files": [
     "bin",
     "dist",
@@ -24,7 +29,7 @@
   "scripts": {
     "build": "pnpm clean && tsup src/index.ts --dts --format cjs,esm",
     "build:dev": "pnpm clean && tsup src/index.ts --format cjs",
-    "pack:example": "pnpm build:dev && npm link && micro-pack --entry examples/src/index.js --output examples/dist",
+    "pack:example": "pnpm build:dev && micro-pack --entry examples/src/index.js --output examples/dist",
     "preview": "pnpm pack:example && node examples/dist/index.js",
     "clean": "rimraf dist"
   },

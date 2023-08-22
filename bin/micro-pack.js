@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const yargs = require('yargs')
-const { build } = require('../dist/index.js')
+const { build } = require('../dist')
 
 yargs.option('entry', {
   alias: 'e',
