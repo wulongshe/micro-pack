@@ -1,0 +1,52 @@
+{
+  "name": "@shewulong/micro-pack",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "keywords": [
+    "pack",
+    "build",
+    "complier"
+  ],
+  "author": "",
+  "main": "dist/index.js",
+  "module": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "type": "commonjs",
+  "files": [
+    "bin",
+    "dist",
+    "template"
+  ],
+  "bin": {
+    "micro-pack": "bin/micro-pack.js"
+  },
+  "scripts": {
+    "build": "pnpm clean && tsup src/index.ts --dts --format cjs,esm",
+    "build:dev": "pnpm clean && tsup src/index.ts --format cjs",
+    "pack:example": "pnpm build:dev && npm link && micro-pack --entry examples/src/index.js --output examples/dist",
+    "preview": "pnpm pack:example && node examples/dist/index.js",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "mustache": "^4.2.0",
+    "ora": "5.4.1",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
+    "@types/mustache": "^4.2.2",
+    "@types/node": "^20.3.3",
+    "rimraf": "^5.0.1",
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6"
+  },
+  "repository": "",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "engines": {
+    "node": ">=14.20.0"
+  }
+}
