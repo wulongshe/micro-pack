@@ -1,6 +1,6 @@
 {
   "name": "@shewulong/micro-pack",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "license": "MIT",
   "keywords": [
@@ -15,7 +15,8 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [
@@ -27,7 +28,7 @@
     "micro-pack": "bin/micro-pack.js"
   },
   "scripts": {
-    "build": "tsup src/index.ts --dts --format cjs,esm --minify --clean",
+    "build": "tsup src/index.ts --dts --format cjs,esm --minify --clean && rimraf dist/index.d.mts",
     "build:dev": "tsup src/index.ts --format cjs --clean",
     "pack:example": "pnpm build:dev && micro-pack --entry examples/src/index.js --output examples/dist",
     "preview": "pnpm pack:example && node examples/dist/index.js"
@@ -42,6 +43,7 @@
     "@types/fs-extra": "^11.0.1",
     "@types/mustache": "^4.2.2",
     "@types/node": "^20.3.3",
+    "rimraf": "^5.0.1",
     "tsup": "^7.2.0",
     "typescript": "^5.1.6"
   },
